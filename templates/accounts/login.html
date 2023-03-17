@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Login Page</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <div class="form-wrapper">
+            <h2>Create an Account</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div style="text-align:center">
+                    <p style="color:red;">{{message}}!</p>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="username" required autocomplete="off">
+                    <label>Username</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" required autocomplete="off">
+                    <label>Password</label>
+                </div>
+                <div class="input-group">
+                    <button type="submit" name="login" class="btn">Log in</button>
+                </div>
+                <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+            </form>
+        </div>
+    </body>
+</html>

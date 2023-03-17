@@ -1,0 +1,38 @@
+
+{% for message in chat.messages.all %}
+{% if user == message.sender %}
+<div class="chat-message-right pb-4">
+    <div>
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-HmAlYRaMiTx6PqSGcL9ifkAFxWHVPvhiHQ&usqp=CAU"
+            class="rounded-circle mr-1"
+            alt="Chris Wood" width="40"
+            height="40">
+        <div class="text-muted small
+            text-nowrap mt-2">2:33 am</div>
+    </div>
+    <div class="flex-shrink-1 bg-light
+        rounded py-2 px-3 mr-3">
+        <div class="font-weight-bold mb-1">You</div>
+        {{message.text}}
+    </div>
+</div>
+{% else %}
+<div class="chat-message-left pb-4">
+    <div>
+        <img src="https://globalsurgery.med.ubc.ca/files/2022/08/default.jpg"
+            class="rounded-circle mr-1"
+            alt="Sharon Lessman" width="40"
+            height="40">
+        <div class="text-muted small
+            text-nowrap mt-2">2:34 am</div>
+    </div>
+    <div class="flex-shrink-1 bg-light
+        rounded py-2 px-3 ml-3">
+        <div class="font-weight-bold mb-1">{{message.sender}}</div>
+        {{message.text}}
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
